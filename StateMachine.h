@@ -1,0 +1,46 @@
+#pragma once
+
+enum class SystemState
+{
+  IDLE,
+  ARMED,
+  TRIGGERED,
+  CHALLENGE,
+  LOCKED_OUT
+};
+
+enum class CommsMode
+{
+  CONNECTED,
+  AUTONOMOUS
+};
+
+enum class Event
+{
+  PIR_CONFIRMED,
+  PIR_CLEARED,
+  RFID_CARD_PRESENTED,
+
+  RFID_AUTHORIZED,
+  RFID_UNAUTHORIZED,
+  RFID_UNKNOWN,
+
+  IDENTIFICATION_WINDOW_EXPIRED,
+  CHALLENGE_TIMEOUT,
+  LOCKOUT_EXPIRED,
+
+  CMD_ARM,
+  CMD_DISARM,
+  CMD_LOCKDOWN,
+  CMD_RELEASE_LOCKDOWN,
+  CMD_ACKNOWLEDGE,
+
+  HEARTBEAT_FAILED,
+  HEARTBEAT_RESTORED,
+
+  BOOT_COMPLETE,
+  SELF_CHECK_FAILED
+};
+
+SystemState getCurrentState();
+void handleEvent(Event event);
