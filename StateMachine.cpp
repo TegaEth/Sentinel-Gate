@@ -124,7 +124,7 @@ void handleEvent(Event event){
           break;
         case Event::IDENTIFICATION_WINDOW_EXPIRED:
           Serial.println(">>> [INFO] Identification window expired, transitioning to LOCKED_OUT state...");
-          transitionTo(SystemState::LOCKED_OUT); 
+          transitionTo(SystemState::ARMED); 
           break;
         case Event::HEARTBEAT_FAILED:
           Serial.println(">>> [COMMS] Link lost, entering autonomous mode...");
